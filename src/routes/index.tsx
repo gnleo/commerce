@@ -11,7 +11,7 @@ function WebRoutes() {
             <Routes>
                 <Route path="/" element={<Landing />} />
                 <Route path="/shops-map" element={<ShopsMap />} />
-                <Route path="/shop-details" element={<ShopDetails />} />
+                <Route path="/shop-details/:id" element={<ShopDetails />} />
                 <Route path="/new-shop" element={<NewShop />} />
             </Routes>
         </BrowserRouter>
