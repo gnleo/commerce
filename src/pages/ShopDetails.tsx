@@ -11,26 +11,19 @@ import { Button } from '../components/Button'
 import { useParams } from 'react-router-dom'
 import { api } from '../services/api'
 
-// interface StoreParams {
-//     id: string;
-// }
 
 function ShopDetails() {
     const [position, setPosition] = useState<[number, number]>([-2.246658, -49.504908])
     const [openOnWeekends, setOpenOnWeekends] = useState(false)
 
-    // const params = window.location.pathname
-    const paramsId = window.location.pathname.split("/")
-
-    // console.log("🚀 ~ ShopDetails ~ params", id[2])
-    
+    const params = useParams();
 
     useEffect(()=> {
-        api.get(`/store/detail/${paramsId[paramsId.length-1]}`).then(response => {
+        api.get(`/store/detail/${params.id}`).then(response => {
             console.log("🚀 ~ api.get ~ response", response.data)
         	//   setOrphanage(response.data);
         })
-      });
+      }, [params.id]);
 
     return (
         <main>
